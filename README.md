@@ -7,7 +7,7 @@ The base layer involves setting up OpenStack nodes on CloudLab, providing the in
 ## **Kubernetes Layer: Kubespray on Top of OpenStack**
 Once the OpenStack nodes are provisioned, the next step is to deploy a Kubernetes cluster using Kubespray, a robust tool for Kubernetes cluster provisioning. Terraform is used to automate the deployment and infrastructure management process.
 
-- Deployment of Kubernetes using Kubespray on the OpenStack infrastructure
+- Deployment of Kubernetes using Kubespray on the OpenStack infrastructure(https://github.com/kubernetes-sigs/kubespray/tree/master/contrib/terraform/openstack)
 - Automated infrastructure management with Terraform
 - High availability and scalable cluster setup
 
