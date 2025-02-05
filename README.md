@@ -4,10 +4,46 @@ The base layer involves setting up OpenStack nodes on CloudLab, providing the in
 - Provisioning OpenStack nodes on CloudLab
 - Setting up networking, storage, and compute resources through OpenStack
 
-## **Kubernetes Layer: Kubespray on Top of OpenStack**
-Once the OpenStack nodes are provisioned, the next step is to deploy a Kubernetes cluster using Kubespray, a robust tool for Kubernetes cluster provisioning. Terraform is used to automate the deployment and infrastructure management process.
+# CloudLab Kubernetes Cluster Profile
 
-- Deployment of Kubernetes using Kubespray on the OpenStack infrastructure(https://github.com/kubernetes-sigs/kubespray/tree/master/contrib/terraform/openstack)
-- Automated infrastructure management with Terraform
-- High availability and scalable cluster setup
+## Overview
+This CloudLab profile provisions a **multi-node Kubernetes cluster** with a **highly available control plane**, **Calico CNI for networking**, **MetalLB for load balancing**, and **NFS for persistent storage**. This setup is far more robust compared to Minikube, which lacks HA, proper networking, and scalable storage.
+
+
+
+## **Cluster Setup**
+The Kubernetes cluster consists of:
+- **1 Load Balancer**
+- **3 Control Plane Nodes** (API Server, Scheduler, Controller Manager, etcd)
+- **1 CLI Node** (for cluster management and deployments)
+- **1 NFS Node** (for persistent storage)
+- **Multiple Worker Nodes** (scalable up to 32+)
+
+
+
+## **Profile Parameters**
+| Parameter                         | Description |
+|------------------------------------|-------------|
+| **Number of Nodes**                | Can be `1` or `>=3` (default: `3`); Scalable |
+| **Hardware Type**                  | Specific machine type for consistency |
+| **Experiment Link Speed**          | Sets network speed for cluster interfaces |
+| **Disk Image**                     | `UBUNTU22-64-STD` |
+| **Kubespray Git Repository**        | `https://github.com/kubernetes-incubator/kubespray.git` |
+| **Kubespray Version**              | `release-2.21` |
+| **Kubernetes Version**             |  default stable version |
+| **Helm Version**                   |  default |
+| **Container Manager**              | `docker` (default) or `containerd` |
+| **Kubernetes Network Plugin**       | `calico` |
+| **Enable MetalLB**                 | `True` |
+| **Enable NFS**                     | `True` |
+| **Kube Proxy Mode**                | `ipvs` |
+| **Kube Master is Worker**          | `False` |
+| **Private Docker Registry**        | `True` (exposed on kube master) |
+
+---
+
+## **Architecture Diagram**
+Below is the architecture diagram of this Kubernetes setup:
+
+![Cluster Architecture](./arch.png)
 
