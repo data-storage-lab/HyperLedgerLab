@@ -45,5 +45,5 @@ The Kubernetes cluster consists of:
 ## **Architecture Diagram**
 Below is the architecture diagram of this Kubernetes setup:
 
-![Cluster Architecture](./arch.png)
+![Cluster Architecture](./arch1.png)
 
