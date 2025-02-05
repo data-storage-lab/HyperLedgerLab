@@ -6,21 +6,6 @@ The base layer involves setting up OpenStack nodes on CloudLab, providing the in
 
 # CloudLab Kubernetes Cluster Profile
 
-## Overview
-This CloudLab profile provisions a **multi-node Kubernetes cluster** with a **highly available control plane**, **Calico CNI for networking**, **MetalLB for load balancing**, and **NFS for persistent storage**. This setup is far more robust compared to Minikube, which lacks HA, proper networking, and scalable storage.
-
-
-
-## **Cluster Setup**
-The Kubernetes cluster consists of:
-- **1 Load Balancer**
-- **3 Control Plane Nodes** (API Server, Scheduler, Controller Manager, etcd)
-- **1 CLI Node** (for cluster management and deployments)
-- **1 NFS Node** (for persistent storage)
-- **Multiple Worker Nodes** (scalable up to 32+)
-
-
-
 ## **Profile Parameters**
 | Parameter                         | Description |
 |------------------------------------|-------------|
