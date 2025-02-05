@@ -1,9 +1,3 @@
-## **Base Layer: OpenStack Nodes on CloudLab**
-The base layer involves setting up OpenStack nodes on CloudLab, providing the infrastructure for running the Kubernetes cluster. OpenStack is used as the underlying cloud platform to manage the virtualized resources.
-
-- Provisioning OpenStack nodes on CloudLab
-- Setting up networking, storage, and compute resources through OpenStack
-
 # CloudLab Kubernetes Cluster Profile
 
 ## **Profile Parameters**
